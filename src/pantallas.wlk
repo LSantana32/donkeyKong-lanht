@@ -36,7 +36,7 @@ object pantallaInicioStage2 inherits Pantalla{
 }
 
 object pantallaYouWin inherits Pantalla{
-	override method image()="assets/pantallaInicio/youWin.png"
+	override method image()="assets/pantallaInicio/youWin"+"-"+fotogramaActual.toString()+".png"
 }
 
 
@@ -70,7 +70,8 @@ object youWin {
 		juego.musicaFondoStage2().stop()
 		game.sound("assets/sonidos/win.wav").play()      
 		game.addVisual(pantallaYouWin)
-		keyboard.enter().onPressDo{
+		game.onTick(1000,"cambio imagen win",{pantallaYouWin.siguienteFotograma()})
+		keyboard.r().onPressDo{
 			game.clear()
 			juego.inicio()
 		}
