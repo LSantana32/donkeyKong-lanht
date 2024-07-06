@@ -49,7 +49,7 @@ object gameOver {
 			self.musicaGameOver().resume()
 		}else{
 			self.musicaGameOver().play()
-			musicaGameOver.shouldLoop(true)
+			musicaGameOver.shouldLoop(false)//estaba en (true) repetia al final
 			validacion = validacion + 1
 		}
 		
@@ -60,8 +60,8 @@ object gameOver {
 			juego.inicio()
 			self.musicaGameOver().pause()
 			}
-		}
-			
+		keyboard.q().onPressDo{game.stop()}
+		}				
 }
 
 object youWin {
@@ -70,8 +70,11 @@ object youWin {
 		juego.musicaFondoStage2().stop()
 		game.sound("assets/sonidos/win.wav").play()      
 		game.addVisual(pantallaYouWin)
-		game.schedule(6000,{
-			game.stop()})
+		keyboard.enter().onPressDo{
+			game.clear()
+			juego.inicio()
+		}
+		keyboard.q().onPressDo{game.stop()}
 	}
 }
 

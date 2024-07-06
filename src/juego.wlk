@@ -83,9 +83,9 @@ object juego{
 			}
 	
 	method controles(){
-		var contador = 0
+		//var contador = 0
 		
-		game.onTick(100,"validacion",{contador = contador + 1})
+		//game.onTick(100,"validacion",{contador = contador + 1})////////ver
 		game.removeVisual(pantallaInicio)
 		game.addVisual(pantallaControles)
 		self.cambioImage(pantallaControles)
@@ -170,13 +170,12 @@ object juego{
 		stage2.reiniciarEscaleras()
 		mario.reiniciarMarioLvl2()
 		kong.positionSegundoNivel()
-		kong.animacionStage2()
-		barriles.positionSegundoNivel()  
-		game.schedule(7000,{prograFantasma.aniadirFantasmas()})
-		game.schedule(15000,{prograFantasma.aniadirFantasmas()})
-		game.schedule(24000,{prograFantasma.aniadirFantasmas()})
-		game.schedule(35000,{prograFantasma.aniadirFantasmas()})
-		game.schedule(450000,{prograFantasma.aniadirFantasmas()})
+		kong.animacionStage2() 
+		game.schedule(5000,{prograFantasma.aniadirFantasma()})
+		game.schedule(10000,{prograFantasma.aniadirFantasma()})
+		game.schedule(15000,{prograFantasma.aniadirFantasma()})
+		game.schedule(20000,{prograFantasma.aniadirFantasma()})
+		//game.schedule(25000,{prograFantasma.aniadirFantasma()})
 		self.configuracion(2)
 		game.schedule(2000,{self.musicaFondoStage2().resume()})
 		}
